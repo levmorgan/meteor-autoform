@@ -576,6 +576,11 @@ if (typeof Handlebars !== 'undefined') {
     //to transfer the selected attribute to the selected property when
     //the form is valid, to make sure current values show correctly for
     //an update form
+	if (Session.get('fill_selects') == false) {
+		return;
+	}
+	Session.set('fill_selects', false);
+	console.log("autoFormRendered");
     var self = this, formID = self.data.formID;
     var selections = getSelections(formID);
     if (!selections) {
